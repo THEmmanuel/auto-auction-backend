@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/THEmmanuel/auto-auction-backend/issues"
   },
-  "homepage": "https://github.com/THEmmanuel/auto-auction-backend#readme"
+  "homepage": "https://github.com/THEmmanuel/auto-auction-backend#readme",
+  "dependencies": {
+    "ethers": "^6.8.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.1"
+  }
 }
