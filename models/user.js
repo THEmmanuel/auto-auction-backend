@@ -33,7 +33,7 @@ const UserSchema = new Schema({
 
 	rating: {
 		type: String,
-		required: true,
+		// required: true,
 	},
 
 	location: {
