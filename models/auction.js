@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const Car = require('./car');
 const User = require('./user');
 const Bid = require('./bid');
+const NFT = require('./NFT');
 
 const AuctionSchema = new Schema({
 	car: {
@@ -22,11 +23,11 @@ const AuctionSchema = new Schema({
 
 	NFTMinted: {
 		type: Boolean,
-		required: true,
 	},
 
 	NFT: {
-
+		type: Schema.types.ObjectId,
+		ref: NFT
 	},
 
 	bids: [{
@@ -48,14 +49,9 @@ const AuctionSchema = new Schema({
 		required: true,
 	},
 
-	bidWinnerWallet: {
-		type: string,
-		required: true,
-	},
-
 	winBid: {
-		type: string,
-		required: true
+		type: Schema.types.ObjectId,
+		ref: Bid
 	},
 })
 

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Car = require('./car')
+const Auction = require('./auction');
+const Bid = require('./bid');
 
 const UserSchema = new Schema({
 	email: {
@@ -8,7 +9,7 @@ const UserSchema = new Schema({
 	},
 
 	userID: {
-
+		type: String
 	},
 
 	username: {
@@ -45,16 +46,18 @@ const UserSchema = new Schema({
 	},
 
 	createdAuctiona: [{
-		// type: mongoose.Schema.Types.ObjectId,
-		// ref: Car
+		type: mongoose.Schema.Types.ObjectId,
+		ref: Auction
 	}],
 
 	participatedAuctions: [{
-		
+		type: mongoose.Schema.Types.ObjectId,
+		ref: Auction
 	}],
 
 	bids: [{
-
+		type: mongoose.Schema.Types.ObjectId,
+		ref: Bid
 	}]
 });
 

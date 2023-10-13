@@ -15,11 +15,6 @@ const BidSchema = new Schema({
 		ref: Auction
 	},
 
-	// bidWinnerWallet: {
-	// 	type: string,
-	// 	required: true,
-	// },
-
 	bidder: {
 		type: Schema.Types.ObjectId,
 		ref: User
