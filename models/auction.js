@@ -4,12 +4,12 @@ const Car = require('./car');
 const User = require('./user');
 
 const AuctionSchema = new Schema({
-	carInfo: {
+	car: {
 		type: Schema.Types.ObjectId,
 		ref: Car
 	},
 
-	sellerInfo: {
+	seller: {
 		type: Schema.types.ObjectId,
 		ref: User
 	},
@@ -24,7 +24,7 @@ const AuctionSchema = new Schema({
 		required: true,
 	},
 
-	NFTInfo: {
+	NFT: {
 
 	},
 
@@ -48,7 +48,7 @@ const AuctionSchema = new Schema({
 	},
 
 	winBid: {
-		
+
 	},
 
 	currentHighestBid: {
