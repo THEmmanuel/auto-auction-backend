@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Car = require('./car');
 const User = require('./user');
+const Bid = require('./bid');
 
 const AuctionSchema = new Schema({
 	car: {
@@ -28,6 +29,11 @@ const AuctionSchema = new Schema({
 
 	},
 
+	bids: [{
+		type: Schema.types.ObjectId,
+		ref: Bid
+	}],
+
 	initialPrice: {
 		type: string,
 		required: true,
@@ -48,12 +54,9 @@ const AuctionSchema = new Schema({
 	},
 
 	winBid: {
-
+		type: string,
+		required: true
 	},
-
-	currentHighestBid: {
-
-	}
 })
 
 module.exports = mongoose.model('Auction', AuctionSchema);
