@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-// Crrate a new user
+// Create a new user
 router.post('/', async (req, res) => {
 	try {
 		// Check if user with the  specified wallet exists
@@ -29,6 +29,40 @@ router.post('/', async (req, res) => {
 
 	} catch (error) {
 		res.status(400).json({
+			error: error.message
+		});
+	}
+});
+
+// Get all users
+router.get('/', async (req, res) => {
+	try {
+		const users = await User.find();
+		res.status(200).json(users);
+	} catch (error) {
+		res.status(500).json({
+			error: error.message
+		});
+	}
+});
+
+// Get a user by wallet address
+router.get('/:address', async (req, res) => {
+	try {
+		const address = req.params.address;
+		const user = await User.findOne({
+			walletAddress: address
+		});
+
+		if (!user) {
+			return res.status(404).json({
+				error: 'User not found'
+			});
+		}
+
+		res.status(200).json(user);
+	} catch (error) {
+		res.status(500).json({
 			error: error.message
 		});
 	}

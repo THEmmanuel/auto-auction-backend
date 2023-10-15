@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CarSchema = new Schema({
-	ownerWalletAddress: {
-		type: String,
-		required: true,
-	},
-
 	make: {
 		type: String,
 		required: true,
@@ -77,7 +72,7 @@ const CarSchema = new Schema({
 		required: true,
 	},
 
-	sellerTypeAddress: {
+	sellerType: {
 		type: String,
 		required: true,
 	},

@@ -11,9 +11,9 @@ const AuctionSchema = new Schema({
 		ref: Car
 	},
 
-	seller: {
-		type: Schema.types.ObjectId,
-		ref: User
+	sellerWallet: {
+		type: String,
+		required: true
 	},
 
 	status: {

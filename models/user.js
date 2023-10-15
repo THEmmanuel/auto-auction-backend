@@ -12,8 +12,8 @@ const UserSchema = new Schema({
 		type: String
 	},
 
-	username: {
-		type: String,
+	fullname: {
+		type: String
 	},
 
 	walletAddress: {
@@ -28,7 +28,6 @@ const UserSchema = new Schema({
 
 	profileImage: {
 		type: String,
-		required: true,
 	},
 
 	rating: {
