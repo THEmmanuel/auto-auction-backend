@@ -6,37 +6,34 @@ const Auction = require('./auction');
 
 const BidSchema = new Schema({
 	car: {
-		type: Schema.Types.ObjectId,
-		ref: Car
+		type: String
 	},
 
 	auction: {
-		type: Schema.Types.ObjectId,
-		ref: Auction
+		type: String
 	},
 
 	bidder: {
-		type: Schema.Types.ObjectId,
-		ref: User
+		type: String
 	},
 
 	bidWinnerWallet: {
-		type: string,
+		type: String,
 		required: true,
 	},
 
 	bidAmount: {
-		type: string,
+		type: String,
 		required: true
 	},
 
 	bidStatus: {
-		type: string,
+		type: String,
 		required: true
 	},
 
 	bidTimestamp: {
-		type: string,
+		type: String,
 		required: true
 	}
 })

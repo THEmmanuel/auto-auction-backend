@@ -67,3 +67,5 @@ router.get('/:address', async (req, res) => {
 		});
 	}
 });
+
+module.exports = router;

@@ -7,8 +7,7 @@ const NFT = require('./NFT');
 
 const AuctionSchema = new Schema({
 	car: {
-		type: Schema.Types.ObjectId,
-		ref: Car
+		type: String
 	},
 
 	sellerWallet: {
@@ -26,32 +25,29 @@ const AuctionSchema = new Schema({
 	},
 
 	NFT: {
-		type: Schema.types.ObjectId,
-		ref: NFT
+		type: String
 	},
 
 	bids: [{
-		type: Schema.types.ObjectId,
-		ref: Bid
+		type: String
 	}],
 
 	initialPrice: {
-		type: string,
+		type: String,
 		required: true,
 	},
 
 	reservePrice: {
-		type: string,
+		type: String,
 	},
 
 	auctionDuration: {
-		type: string,
+		type: String,
 		required: true,
 	},
 
 	winBid: {
-		type: Schema.types.ObjectId,
-		ref: Bid
+		type: String
 	},
 })
 
