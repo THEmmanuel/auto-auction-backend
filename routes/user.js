@@ -99,4 +99,40 @@ router.delete('/:address', async (req, res) => {
 	}
 });
 
+router.patch('/:address', async (req, res) => {
+	try {
+		const address = req.params.address;
+
+		// Find the user with the specified wallet address
+		const user = await User.findOne({
+			walletAddress: address
+		});
+
+		if (!user) {
+			return res.status(404).json({
+				error: 'User not found'
+			});
+		}
+
+		// Update the user's properties based on the request body
+		for (const key in req.body) {
+			if (key in user) {
+				user[key] = req.body[key];
+			}
+		}
+
+		// Save the updated user
+		await user.save();
+
+		res.status(200).json({
+			message: 'User updated successfully',
+			user
+		});
+	} catch (error) {
+		res.status(500).json({
+			error: error.message
+		});
+	}
+});
+
 module.exports = router;
