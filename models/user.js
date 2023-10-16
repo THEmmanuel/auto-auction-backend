@@ -44,7 +44,7 @@ const UserSchema = new Schema({
 		required: true,
 	},
 
-	createdAuctiona: [{
+	createdAuctions: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: Auction
 	}],
