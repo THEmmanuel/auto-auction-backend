@@ -77,7 +77,7 @@ const CarSchema = new Schema({
 		required: true,
 	},
 
-	walletAddress: {
+	ownerWalletAddress: {
 		type: String,
 		required: true,
 	},

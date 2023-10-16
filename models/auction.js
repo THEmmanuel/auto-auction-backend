@@ -10,7 +10,7 @@ const AuctionSchema = new Schema({
 		type: String
 	},
 
-	sellerWallet: {
+	creatorWalletAddress: {
 		type: String,
 		required: true
 	},
@@ -42,6 +42,16 @@ const AuctionSchema = new Schema({
 	},
 
 	auctionDuration: {
+		type: String,
+		required: true,
+	},
+
+	auctionStartTime: {
+		type: String,
+		required: true,
+	},
+
+	auctionEndTime: {
 		type: String,
 		required: true,
 	},
