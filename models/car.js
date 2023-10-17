@@ -7,6 +7,11 @@ const CarSchema = new Schema({
 		required: true,
 	},
 
+	imageURL: {
+		type: String,
+		required: true,
+	},
+
 	model: {
 		type: String,
 		required: true,
@@ -47,11 +52,6 @@ const CarSchema = new Schema({
 		required: true,
 	},
 
-	features: {
-		type: String,
-		required: true,
-	},
-
 	description: {
 		type: String,
 		required: true,
@@ -68,6 +68,11 @@ const CarSchema = new Schema({
 	},
 
 	exteriorColor: {
+		type: String,
+		required: true,
+	},
+
+	horsepower: {
 		type: String,
 		required: true,
 	},

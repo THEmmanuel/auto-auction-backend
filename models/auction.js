@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Car = require('./car');
-const User = require('./user');
-const Bid = require('./bid');
-const NFT = require('./NFT');
 
 const AuctionSchema = new Schema({
 	car: {

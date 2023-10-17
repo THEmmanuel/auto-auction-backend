@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-const userRoute = require('./routes/user')
+const userRoute = require('./routes/user');
+const auctionRoute = require('./routes/auction');
+const carRoute = require('./routes/car');
 
 const port = process.env.PORT;
 const mongoURI = process.env.MONGO_URI;
@@ -33,6 +35,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', userRoute);
+app.use('/cars', carRoute);
+app.use('/auctions', auctionRoute);
 
 console.log(`running at ${port}`)
 app.listen(port);
