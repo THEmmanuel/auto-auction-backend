@@ -49,7 +49,6 @@ const AuctionSchema = new Schema({
 
 	auctionEndTime: {
 		type: String,
-		required: true,
 	},
 
 	winBid: {
