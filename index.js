@@ -8,6 +8,7 @@ require('dotenv').config();
 const userRoute = require('./routes/user');
 const auctionRoute = require('./routes/auction');
 const carRoute = require('./routes/car');
+const bidRoute = require('./routes/bids');
 
 const port = process.env.PORT;
 const mongoURI = process.env.MONGO_URI;
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 app.use('/users', userRoute);
 app.use('/cars', carRoute);
 app.use('/auctions', auctionRoute);
+app.use('/bids', bidRoute);
 
 console.log(`running at ${port}`)
 app.listen(port);

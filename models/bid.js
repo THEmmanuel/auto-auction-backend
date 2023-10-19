@@ -17,11 +17,6 @@ const BidSchema = new Schema({
 		type: String
 	},
 
-	bidWinnerWallet: {
-		type: String,
-		required: true,
-	},
-
 	bidAmount: {
 		type: String,
 		required: true
