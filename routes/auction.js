@@ -85,4 +85,56 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+// Define a route to get auctions by creatorWalletAddress
+router.get('/creator/:creatorWalletAddress', async (req, res) => {
+	try {
+		const creatorWalletAddress = req.params.creatorWalletAddress;
+
+		// Find auctions with the specified creatorWalletAddress
+		const auctions = await Auction.find({
+			creatorWalletAddress
+		});
+
+		if (auctions.length === 0) {
+			return res.status(404).json({
+				error: 'No auctions found for the specified creatorWalletAddress'
+			});
+		}
+
+		res.status(200).json(auctions);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: 'Failed to retrieve auctions by creatorWalletAddress'
+		});
+	}
+});
+
+module.exports = router;
+
+
+
+// router.delete('/deleteAll', async (req, res) => {
+// 	try {
+// 		// Delete all auctions in the database
+// 		const result = await Auction.deleteMany({});
+
+// 		if (result.deletedCount > 0) {
+// 			res.status(200).json({
+// 				message: 'All auctions deleted successfully'
+// 			});
+// 		} else {
+// 			res.status(404).json({
+// 				error: 'No auctions found to delete'
+// 			});
+// 		}
+// 	} catch (error) {
+// 		console.error(error);
+// 		res.status(500).json({
+// 			error: 'Failed to delete auctions'
+// 		});
+// 	}
+// });
+
+
 module.exports = router;

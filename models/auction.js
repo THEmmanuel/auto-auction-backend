@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const AuctionSchema = new Schema({
 	car: {
-		type: String
+		type: String,
+		required: true
 	},
 
 	creatorWalletAddress: {
