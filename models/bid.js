@@ -18,7 +18,7 @@ const BidSchema = new Schema({
 	},
 
 	bidAmount: {
-		type: String,
+		type: Number,
 		required: true
 	},
 

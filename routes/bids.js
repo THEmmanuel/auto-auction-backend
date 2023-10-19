@@ -70,7 +70,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// Add this route to your existing router
+// get auction bids
 router.get('/auction/:auctionId', async (req, res) => {
 	try {
 		const auctionId = req.params.auctionId;
