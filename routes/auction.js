@@ -110,6 +110,41 @@ router.get('/creator/:creatorWalletAddress', async (req, res) => {
 	}
 });
 
+// Define a route to get auctions by bodytype
+router.get('/by-bodytype/:bodytype', async (req, res) => {
+	try {
+		const bodytype = req.params.bodytype;
+
+		// Find auctions where the referenced car has the specified bodytype
+		const auctions = await Auction.find()
+			.populate({
+				path: 'car',
+				match: {
+					bodytype
+				}, // Filter by the provided bodytype
+				select: 'bodytype', // Include only the bodytype field of the car
+			})
+			.exec();
+
+		// Filter out null or undefined car references
+		const filteredAuctions = auctions.filter((auction) => auction.car !== null);
+
+		if (filteredAuctions.length === 0) {
+			return res.status(404).json({
+				error: 'No auctions found for the specified bodytype',
+			});
+		}
+
+		res.status(200).json(filteredAuctions);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: 'Failed to retrieve auctions by bodytype',
+		});
+	}
+});
+
+
 module.exports = router;
 
 
