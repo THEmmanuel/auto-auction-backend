@@ -17,6 +17,10 @@ const AuctionSchema = new Schema({
 		required: true,
 	},
 
+	hash: {
+		type: String
+	},
+
 	NFTMinted: {
 		type: Boolean,
 	},

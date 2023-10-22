@@ -144,6 +144,38 @@ router.get('/by-bodytype/:bodytype', async (req, res) => {
 	}
 });
 
+// Define a route to add a 'hash' field to a single auction by ID
+router.post('/:id/add-hash', async (req, res) => {
+	try {
+		const auctionId = req.params.id;
+		const {
+			hash
+		} = req.body;
+
+		// Find the auction by ID
+		const auction = await Auction.findById(auctionId);
+
+		if (!auction) {
+			return res.status(404).json({
+				error: 'Auction not found',
+			});
+		}
+
+		// Update the auction's 'hash' field
+		auction.hash = hash;
+
+		// Save the updated auction to the database
+		await auction.save();
+
+		res.status(200).json(auction);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: 'Failed to add hash to the auction',
+		});
+	}
+});
+
 
 module.exports = router;
 
